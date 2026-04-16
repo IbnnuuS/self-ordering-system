@@ -56,6 +56,9 @@ class PaymentController extends Controller
                 'quantity' => $item->quantity,
                 'name'     => $item->menu_name,
             ])->toArray(),
+            'callbacks' => [
+                'finish' => route('payment.finish', $order),
+            ],
         ];
 
         try {
@@ -130,5 +133,33 @@ class PaymentController extends Controller
             'payment_status' => $order->payment_status,
             'order_status'   => $order->order_status,
         ]);
+    }
+
+    public function finish(Order $order)
+    {
+        // Cek status langsung ke Midtrans API
+        try {
+            $status = \Midtrans\Transaction::status($order->order_number);
+
+            if (in_array($status->transaction_status, ['capture', 'settlement'])) {
+                $order->update([
+                    'payment_status' => 'paid',
+                    'order_status'   => 'waiting',
+                ]);
+
+                $payment = $order->payment;
+                $payment?->update([
+                    'status'  => 'success',
+                    'paid_at' => now(),
+                    'midtrans_response' => json_decode(json_encode($status), true),
+                ]);
+
+                event(new OrderPaid($order->load('items')));
+            }
+        } catch (\Exception $e) {
+            \Log::error('Midtrans status check failed: ' . $e->getMessage());
+        }
+
+        return redirect()->route('order.bill', $order);
     }
 }

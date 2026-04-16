@@ -1,30 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 @section('title', 'Kasir')
+@section('page-title', 'Kasir')
+@section('page-subtitle', 'Operasional / Kasir')
 
 @section('content')
-<div class="min-h-screen bg-gray-100" x-data="kasirPage()">
-
-    <div class="bg-gray-800 text-white px-6 py-4 flex items-center justify-between">
-        <h1 class="text-2xl font-bold">🏪 Kasir</h1>
-        <div class="flex gap-3 text-sm">
-            <a href="{{ route('kitchen.index') }}" class="bg-green-600 px-4 py-2 rounded-lg">Kitchen</a>
-            <a href="{{ route('admin.index') }}" class="bg-gray-600 px-4 py-2 rounded-lg">Admin</a>
-        </div>
-    </div>
-
-    @if(session('success'))
-    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 m-4 rounded-xl">
-        {{ session('success') }}
-    </div>
-    @endif
-
-    @if(session('error'))
-    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 m-4 rounded-xl">
-        {{ session('error') }}
-    </div>
-    @endif
-
-    <div class="p-4">
+<div x-data="kasirPage()">
         {{-- Filter Tabs --}}
         <div class="flex gap-2 mb-4">
             <button @click="filter = 'all'" :class="filter === 'all' ? 'bg-gray-800 text-white' : 'bg-white text-gray-600'"
@@ -99,6 +79,8 @@
     </div>
 </div>
 
+@endsection
+
 @push('scripts')
 <script>
 function kasirPage() {
@@ -111,4 +93,3 @@ function kasirPage() {
 setInterval(() => location.reload(), 15000);
 </script>
 @endpush
-@endsection

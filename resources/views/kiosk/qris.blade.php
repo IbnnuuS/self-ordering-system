@@ -54,9 +54,8 @@ function qrisPage() {
                     onSuccess: (result) => {
                         this.status = 'paid';
                         clearInterval(this.pollInterval);
-                        setTimeout(() => {
-                            window.location.href = '{{ route('order.bill', $order) }}';
-                        }, 2000);
+                        // Langsung redirect ke finish untuk update status
+                        window.location.href = '{{ route('payment.finish', $order) }}';
                     },
                     onPending: (result) => {
                         this.status = 'pending';
