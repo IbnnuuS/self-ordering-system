@@ -51,8 +51,21 @@
                 <tr class="hover:bg-gray-50 transition-colors">
                     <td class="px-5 py-3.5 text-gray-400">{{ $i + 1 }}</td>
                     <td class="px-5 py-3.5">
-                        <p class="font-semibold text-gray-800">{{ $menu->name }}</p>
-                        <p class="text-xs text-gray-400 truncate max-w-xs">{{ $menu->description }}</p>
+                        <div class="flex items-center gap-3">
+                            @if($menu->image)
+                            <img src="{{ asset('storage/' . $menu->image) }}"
+                                 alt="{{ $menu->name }}"
+                                 class="w-12 h-12 rounded-lg object-cover flex-shrink-0">
+                            @else
+                            <div class="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center text-2xl flex-shrink-0">
+                                {{ $menu->category->type === 'food' ? '🍛' : '🥤' }}
+                            </div>
+                            @endif
+                            <div>
+                                <p class="font-semibold text-gray-800">{{ $menu->name }}</p>
+                                <p class="text-xs text-gray-400 truncate max-w-xs">{{ $menu->description }}</p>
+                            </div>
+                        </div>
                     </td>
                     <td class="px-5 py-3.5">
                         <span class="px-2.5 py-1 rounded-full text-xs font-semibold
@@ -111,7 +124,8 @@
             </div>
 
             <form method="POST"
-                  :action="editData ? `/admin/menus/${editData.id}` : '{{ route('admin.menus.store') }}'">
+                  :action="editData ? `/admin/menus/${editData.id}` : '{{ route('admin.menus.store') }}'"
+                  enctype="multipart/form-data">
                 @csrf
                 <span x-show="editData" x-html="'<input type=\'hidden\' name=\'_method\' value=\'PUT\'>'"></span>
 
@@ -145,6 +159,18 @@
                         <input type="number" name="price" :value="editData ? editData.price : ''"
                                class="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
                                placeholder="25000" required>
+                    </div>
+                    <div x-data="{ preview: null }">
+                        <label class="block text-sm font-semibold text-gray-700 mb-1.5">Gambar Menu (Opsional)</label>
+                        <input type="file" name="image" accept="image/*"
+                               @change="preview = $event.target.files[0] ? URL.createObjectURL($event.target.files[0]) : null"
+                               class="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                        <p class="text-xs text-gray-400 mt-1">Format: JPG, PNG, WEBP. Max 2MB</p>
+
+                        <div x-show="preview || (editData && editData.image)" class="mt-3">
+                            <img :src="preview || (editData && editData.image ? '/storage/' + editData.image : '')"
+                                 class="w-32 h-32 rounded-xl object-cover border border-gray-200">
+                        </div>
                     </div>
                     <div class="flex items-center gap-2">
                         <input type="checkbox" name="is_available" value="1" id="modal_available"

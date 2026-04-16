@@ -36,9 +36,19 @@
                 @foreach($category->menus as $menu)
                 <div class="bg-white rounded-2xl shadow-md overflow-hidden active:scale-95 transition-transform touch-manipulation"
                      @click="addToCart({{ $menu->id }}, '{{ addslashes($menu->name) }}', {{ $menu->price }})">
-                    <div class="bg-orange-100 h-32 flex items-center justify-center text-5xl">
-                        {{ $category->type === 'food' ? '🍛' : '🥤' }}
+                    @if($menu->image)
+                    <div class="relative w-full pt-[75%] overflow-hidden">
+                        <img src="{{ asset('storage/' . $menu->image) }}"
+                             alt="{{ $menu->name }}"
+                             class="absolute inset-0 w-full h-full object-cover">
                     </div>
+                    @else
+                    <div class="bg-orange-100 relative w-full pt-[75%]">
+                        <div class="absolute inset-0 flex items-center justify-center text-5xl">
+                            {{ $category->type === 'food' ? '🍛' : '🥤' }}
+                        </div>
+                    </div>
+                    @endif
                     <div class="p-3">
                         <h3 class="font-bold text-gray-800 text-sm leading-tight">{{ $menu->name }}</h3>
                         <p class="text-orange-500 font-bold mt-1">Rp {{ number_format($menu->price, 0, ',', '.') }}</p>

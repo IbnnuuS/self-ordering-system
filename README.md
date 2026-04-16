@@ -1,59 +1,305 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🍽️ Self Ordering System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistem self-ordering modern untuk restoran/cafe yang memungkinkan customer memesan sendiri melalui kiosk touchscreen, dengan integrasi payment gateway (QRIS & Cash), kitchen display, dan dashboard admin lengkap.
 
-## About Laravel
+![Laravel](https://img.shields.io/badge/Laravel-11-FF2D20?style=flat&logo=laravel&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP-8.2-777BB4?style=flat&logo=php&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=flat&logo=mysql&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind-3.0-38B2AC?style=flat&logo=tailwind-css&logoColor=white)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ✨ Fitur Utama
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 🛒 Kiosk (Customer)
+- **Touch-friendly interface** untuk pemesanan mandiri
+- Tampilan menu dengan gambar (responsive)
+- Keranjang belanja real-time
+- Pilihan pembayaran: Cash atau QRIS
+- Auto-print struk thermal (80mm)
 
-## Learning Laravel
+### 💳 Payment Gateway
+- **Midtrans Integration** (QRIS Dynamic)
+- Sandbox & Production ready
+- Auto-update status pembayaran
+- Callback handler untuk notifikasi
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### 🧾 Kasir
+- Konfirmasi pembayaran cash
+- Monitor semua order (pending/paid)
+- Filter by payment method
+- Auto-refresh setiap 15 detik
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 👨‍🍳 Kitchen Display
+- Real-time order notification
+- Status tracking (waiting/processing/done)
+- Touch-friendly untuk mark done
+- Auto-refresh order list
 
-## Laravel Sponsors
+### 📊 Admin Dashboard
+- **Dashboard Analytics:**
+  - Total order & revenue hari ini
+  - Order pending
+  - Chart 7 hari terakhir
+  - Top menu & payment split
+  
+- **Manajemen Menu:**
+  - CRUD menu dengan upload gambar
+  - Kategori (food/drink)
+  - Status available/unavailable
+  - Filter by kategori
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- **Manajemen Kategori:**
+  - CRUD kategori
+  - Tipe makanan/minuman
+  - Status aktif/nonaktif
 
-### Premium Partners
+- **Manajemen User:**
+  - CRUD user admin
+  - Authentication system
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+- **Laporan Lengkap:**
+  - Laporan Penjualan (daily breakdown)
+  - Laporan Menu (best seller)
+  - Laporan Pembayaran (Cash vs QRIS)
+  - Filter by date range
 
-## Contributing
+- **Settings:**
+  - Store name, address, phone
+  - WiFi SSID & password (untuk struk)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 🛠️ Tech Stack
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- **Backend:** Laravel 12
+- **Database:** MySQL 8.0
+- **Frontend:** Blade Templates + Alpine.js
+- **CSS:** Tailwind CSS
+- **Payment:** Midtrans PHP SDK
+- **Real-time:** Laravel Reverb (Broadcasting)
+- **Icons:** Font Awesome 6
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 📋 Requirements
 
-## License
+- PHP >= 8.2
+- Composer
+- Node.js & NPM
+- MySQL 8.0
+- Web Server (Apache/Nginx) atau Laravel Valet/Laragon
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## 🚀 Instalasi
+
+### 1. Clone Repository
+```bash
+git clone https://github.com/username/self-ordering.git
+cd self-ordering
+```
+
+### 2. Install Dependencies
+```bash
+composer install
+npm install
+```
+
+### 3. Setup Environment
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+### 4. Konfigurasi Database
+Edit file `.env`:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=self_ordering
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Buat database:
+```bash
+mysql -u root -p
+CREATE DATABASE self_ordering;
+exit;
+```
+
+### 5. Konfigurasi Midtrans (Opsional)
+Daftar di [Midtrans Sandbox](https://dashboard.sandbox.midtrans.com) dan dapatkan API keys.
+
+Edit `.env`:
+```env
+MIDTRANS_SERVER_KEY=SB-Mid-server-xxxxxxxxxxxxxxxx
+MIDTRANS_CLIENT_KEY=SB-Mid-client-xxxxxxxxxxxxxxxx
+MIDTRANS_IS_PRODUCTION=false
+```
+
+### 6. Migrasi & Seeder
+```bash
+php artisan migrate --seed
+```
+
+### 7. Storage Link
+```bash
+php artisan storage:link
+```
+
+### 8. Build Assets
+```bash
+npm run build
+```
+
+### 9. Jalankan Server
+```bash
+php artisan serve
+```
+
+Akses aplikasi di: `http://localhost:8000`
+
+---
+
+## 🔑 Default Credentials
+
+**Admin Login:**
+- Email: `admin@selforder.com`
+- Password: `password`
+
+---
+
+## 📱 Akses Aplikasi
+
+| Role | URL | Deskripsi |
+|------|-----|-----------|
+| **Kiosk** | `/` | Customer self-ordering |
+| **Admin** | `/admin` | Dashboard & management |
+| **Kasir** | `/kasir` | Konfirmasi pembayaran |
+| **Kitchen** | `/kitchen` | Kitchen display system |
+| **Login** | `/login` | Admin authentication |
+
+---
+
+## 📸 Screenshots
+
+### Kiosk (Customer View)
+![Kiosk Menu](screenshots/kiosk-menu.png)
+*Touch-friendly menu dengan gambar*
+
+### Admin Dashboard
+![Dashboard](screenshots/dashboard.png)
+*Analytics & statistics*
+
+### Laporan Penjualan
+![Reports](screenshots/reports.png)
+*Comprehensive sales reports*
+
+### Kitchen Display
+![Kitchen](screenshots/kitchen.png)
+*Real-time order tracking*
+
+---
+
+## 🎨 Fitur Tambahan
+
+- ✅ Responsive design (mobile & desktop)
+- ✅ Touch-friendly interface
+- ✅ Auto-print thermal receipt (80mm)
+- ✅ Real-time order updates
+- ✅ Image upload untuk menu
+- ✅ Barcode untuk cash payment
+- ✅ WiFi info di struk
+- ✅ Multi-language ready (ID)
+
+---
+
+## 🔧 Konfigurasi Production
+
+### 1. Optimize untuk Production
+```bash
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+```
+
+### 2. Set Environment
+```env
+APP_ENV=production
+APP_DEBUG=false
+```
+
+### 3. Setup Midtrans Production
+```env
+MIDTRANS_SERVER_KEY=your-production-server-key
+MIDTRANS_CLIENT_KEY=your-production-client-key
+MIDTRANS_IS_PRODUCTION=true
+```
+
+### 4. Setup Notification URL di Midtrans
+Masuk ke [Midtrans Dashboard](https://dashboard.midtrans.com) → Settings → Configuration:
+```
+Payment Notification URL: https://yourdomain.com/payment/midtrans/callback
+```
+
+---
+
+## 🐛 Troubleshooting
+
+### Error: "Class 'Midtrans\Config' not found"
+```bash
+composer require midtrans/midtrans-php
+```
+
+### Error: Storage link tidak berfungsi
+```bash
+php artisan storage:link
+```
+
+### QRIS payment tidak update status
+- Pastikan Midtrans Notification URL sudah diset
+- Untuk localhost, gunakan ngrok: `ngrok http 8000`
+- Set notification URL: `https://xxxx.ngrok.io/payment/midtrans/callback`
+
+### Gambar menu tidak muncul
+```bash
+php artisan storage:link
+chmod -R 775 storage
+```
+
+---
+
+## 📝 Database Schema
+
+### Tables
+- `users` - Admin users
+- `categories` - Menu categories (food/drink)
+- `menus` - Menu items
+- `orders` - Customer orders
+- `order_items` - Order details
+- `payments` - Payment transactions
+- `settings` - System settings
+
+---
+
+## 📄 License
+
+This project is open-sourced software licensed under the [MIT license](LICENSE).
+
+---
+
+## 🙏 Acknowledgments
+
+- [Laravel](https://laravel.com) - The PHP Framework
+- [Tailwind CSS](https://tailwindcss.com) - CSS Framework
+- [Midtrans](https://midtrans.com) - Payment Gateway
+- [Font Awesome](https://fontawesome.com) - Icons
+- [Alpine.js](https://alpinejs.dev) - JavaScript Framework
+
+---
+
+
+**⭐ Jangan lupa kasih star jika project ini membantu!**

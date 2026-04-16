@@ -74,10 +74,38 @@
                 <span>Manajemen Menu</span>
             </a>
 
+            <a href="{{ route('admin.categories.index') }}"
+               class="sidebar-link {{ request()->routeIs('admin.categories.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Kategori</span>
+            </a>
+
             <a href="{{ route('admin.users.index') }}"
                class="sidebar-link {{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
                 <i class="fa-solid fa-users"></i>
                 <span>Manajemen User</span>
+            </a>
+
+            <div class="pt-3 mt-3 border-t border-gray-100">
+                <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider px-4 mb-2">Laporan</p>
+            </div>
+
+            <a href="{{ route('admin.reports.sales') }}"
+               class="sidebar-link {{ request()->routeIs('admin.reports.sales') ? 'active' : '' }}">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Laporan Penjualan</span>
+            </a>
+
+            <a href="{{ route('admin.reports.menu') }}"
+               class="sidebar-link {{ request()->routeIs('admin.reports.menu') ? 'active' : '' }}">
+                <i class="fa-solid fa-chart-pie"></i>
+                <span>Laporan Menu</span>
+            </a>
+
+            <a href="{{ route('admin.reports.payment') }}"
+               class="sidebar-link {{ request()->routeIs('admin.reports.payment') ? 'active' : '' }}">
+                <i class="fa-solid fa-money-bill-trend-up"></i>
+                <span>Laporan Pembayaran</span>
             </a>
 
             <div class="pt-3 mt-3 border-t border-gray-100">
@@ -94,6 +122,16 @@
                class="sidebar-link {{ request()->routeIs('kitchen.*') ? 'active' : '' }}">
                 <i class="fa-solid fa-fire-burner"></i>
                 <span>Kitchen Display</span>
+            </a>
+
+            <div class="pt-3 mt-3 border-t border-gray-100">
+                <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider px-4 mb-2">Pengaturan</p>
+            </div>
+
+            <a href="{{ route('admin.settings.index') }}"
+               class="sidebar-link {{ request()->routeIs('admin.settings.*') ? 'active' : '' }}">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
             </a>
 
             <a href="{{ route('kiosk') }}" target="_blank"

@@ -21,6 +21,9 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
         ]);
 
-        $this->call(CategoryMenuSeeder::class);
+        $this->call([
+            SettingSeeder::class,
+            CategoryMenuSeeder::class,
+        ]);
     }
 }
