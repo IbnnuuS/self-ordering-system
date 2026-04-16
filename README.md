@@ -187,23 +187,28 @@ Akses aplikasi di: `http://localhost:8000`
 ## 📸 Screenshots
 
 ### Kiosk (Customer View)
-![Kiosk Menu](<img width="806" height="1638" alt="image" src="https://github.com/user-attachments/assets/74b7d4d6-66e4-4a8e-94b5-79d775e07a9d" />)
+<img src="https://github.com/user-attachments/assets/74b7d4d6-66e4-4a8e-94b5-79d775e07a9d" width="300"/>
+
 *Touch-friendly menu dengan gambar*
 
 ### Admin Dashboard
-![Dashboard](<img width="2800" height="1608" alt="Macbook-Air-127 0 0 1" src="https://github.com/user-attachments/assets/0bf54d58-b8cc-4a52-89c2-c39b21ce43dc" />)
+<img src="https://github.com/user-attachments/assets/0bf54d58-b8cc-4a52-89c2-c39b21ce43dc" width="700"/>
+
 *Analytics & statistics*
 
 ### Laporan Penjualan
-![Reports](<img width="2800" height="1608" alt="Macbook-Air-127 0 0 1 (1)" src="https://github.com/user-attachments/assets/8d97d6f7-8e9a-432d-af93-aafa73df43c6" />)
+<img src="https://github.com/user-attachments/assets/8d97d6f7-8e9a-432d-af93-aafa73df43c6" width="700"/>
+
 *Comprehensive sales reports*
 
 ### Kasir Display
-![Kitchen](<img width="2800" height="1608" alt="Macbook-Air-127 0 0 1 (2)" src="https://github.com/user-attachments/assets/52360502-b766-4f80-a661-f6ee2704f227" />)
+<img src="https://github.com/user-attachments/assets/52360502-b766-4f80-a661-f6ee2704f227" width="700"/>
+
 *Real-time order tracking*
 
 ### Kitchen Display
-![Kitchen](<img width="2800" height="1608" alt="Macbook-Air-127 0 0 1 (3)" src="https://github.com/user-attachments/assets/8ea3926f-812b-4dc9-bdb4-80e4bde789a8" />)
+<img src="https://github.com/user-attachments/assets/8ea3926f-812b-4dc9-bdb4-80e4bde789a8" width="700"/>
+
 *Real-time order tracking*
 
 ---
